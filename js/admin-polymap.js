@@ -89,15 +89,34 @@ ready( function(){
 
     if( typeof mapElement != 'undefined' ){
 
-        if( typeof google === 'object' && typeof google.maps === 'object' ){
+        // If ACF check for the google map field
+        if( typeof acf == 'object' ){
+
+            acf.add_action('load', function( $el ){
+
+                // Only execute the init function if there's a google map on the page
+                if( acf.fields.google_map.map ){
+
+                    // execute the init function
+                    gmapInitialize();
+                } else {
+
+                    loadGoogleMaps();
+
+                }
+
+            });
+
+        } else if( typeof google === 'object' && typeof google.maps === 'object' ){
 
             gmapInitialize();
 
         } else {
 
-            loadGoogleMaps();
+           loadGoogleMaps();
 
         }
+
     }
 
 });
