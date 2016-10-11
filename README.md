@@ -1,4 +1,4 @@
-# goliath-polymap
+# Goliath polymap
 
 Draw nice polygon on a google map
 
@@ -20,9 +20,9 @@ define( 'GOOGLE_MAP_API', 'AIzaSy*******************NZfs' );
 
 To add the metabox on your custom post type you can use the filter `gpm/post-type`. Keep in mind you need to return an array.
 
-````
+```
 // Example to add polymap metabox to a custom post type named "operation"
 add_filter( 'gpm/post-type', function(){
     return array( 'operation' );
 });
-``
+```
